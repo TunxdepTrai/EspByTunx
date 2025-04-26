@@ -1062,3 +1062,42 @@ UserInputService.InputBegan:Connect(function(input, processed)
         print("[Y-Aimbot] Aimbot:", AimbotEnabled and "ON" or "OFF")
     end
 end)
+--// Khởi tạo Tabs và Giao Diện
+
+local Tabs = Window:CreateTab("Aimbot", 4483362458)
+local AimbotSection = Tabs:CreateSection("Aimbot")
+local AimToggle = Tabs:CreateToggle("Bật Aimbot", nil, function(Value)
+    AimbotSettings.Enabled = Value
+end)
+local SilentAimToggle = Tabs:CreateToggle("Bật Silent Aim", nil, function(Value)
+    SilentAimSettings.Enabled = Value
+end)
+
+local BotTabs = Window:CreateTab("Bot", 4483362458)
+local TriggerToggle = BotTabs:CreateToggle("Bật Triggerbot", nil, function(Value)
+    TriggerSettings.Enabled = Value
+end)
+
+local VisualsTabs = Window:CreateTab("Visuals", 4483362458)
+local ESPToggle = VisualsTabs:CreateToggle("Bật ESP", nil, function(Value)
+    ESPSettings.Enabled = Value
+end)
+local ChamsToggle = VisualsTabs:CreateToggle("Bật Chams", nil, function(Value)
+    ChamsSettings.Enabled = Value
+end)
+
+local CheckTabs = Window:CreateTab("Checks", 4483362458)
+local TeamCheck = CheckTabs:CreateToggle("Kiểm tra Đội", nil, function(Value)
+    CheckSettings.TeamCheck = Value
+end)
+
+local SettingsTabs = Window:CreateTab("Settings", 4483362458)
+SettingsTabs:CreateButton("Lưu Cấu Hình", function()
+    SaveConfig()
+end)
+SettingsTabs:CreateButton("Tải Cấu Hình", function()
+    LoadConfig()
+end)
+SettingsTabs:CreateButton("Đổi Giao Diện", function()
+    ChangeTheme()
+end)
